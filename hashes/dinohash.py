@@ -137,7 +137,8 @@ if __name__ == "__main__":
 
     image_path = sys.argv[1]
     image = Image.open(image_path)
-    dinohash = DINOHash(pca_dims=96, model="vits14_reg", prod_mode=True).hash
+    # dinohash = DINOHash(pca_dims=96, version="v2", model="vits14_reg", prod_mode=True).hash
+    dinohash = DINOHash(pca_dims=96, version="v3", model="vits16plus", prod_mode=True).hash
     hash_tensor = dinohash([image])[0].hex
     print("Perceptual hash:", hash_tensor)
 
