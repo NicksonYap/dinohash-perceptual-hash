@@ -8,9 +8,23 @@ NOTE: we suggest using `git clone ... --depth 1` while setting up the repository
 To use the Node.js package look at the README in the `node_package` folder
 
 ## Setup
-Install the latest version of PyTorch according to your OS. Then run
+
+```bash
+cd dinohash-perceptual-hash
+uv venv --python 3.12
+source .venv/bin/activate
 ```
-pip install transformers numpy pillow
+
+Install the latest version of PyTorch according to your OS. Then run
+https://pytorch.org/get-started/locally/
+
+Example for PyTorch with CUDA 12.6:
+```bash
+uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+```
+
+```bash
+uv pip install transformers numpy pillow
 ```
 
 ## Usage
@@ -50,7 +64,8 @@ print("Perceptual hash:", hashes[0].hex)
 You can also use the `dinohash.py` script from the command line to generate perceptual hashes for an image.
 
 ```sh
-python dinohash.py <image_path>
+cd dinohash-perceptual-hash
+python hashes/dinohash.py <image_path>
 ```
 
 Replace `<image_path>` with the path to your image file.
@@ -58,7 +73,7 @@ Replace `<image_path>` with the path to your image file.
 Example:
 
 ```sh
-python dinohash.py path/to/your/image.jpg
+python hashes/dinohash.py path/to/your/image.jpg
 ```
 
 This will print the perceptual hash of the image.
